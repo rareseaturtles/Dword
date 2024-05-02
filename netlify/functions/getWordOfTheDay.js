@@ -1,33 +1,17 @@
-exports.handler = async (event, context) => {
+async function changeWord() {
+    const newWord = prompt("Enter the new word:");
     try {
-        // Your function logic here
-        const currentWord = "Hello"; // Example current word
-
-        // Construct the response object with CORS headers
-        const response = {
-            statusCode: 200,
+        const response = await fetch('https://Dword.netlify.app/.netlify/functions/updateWord', {
+            method: 'POST',
             headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Content-Type': 'application/json' // Set appropriate content type
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                currentWord: currentWord
-            })
-        };
-
-        // Return the response
-        return response;
+            body: JSON.stringify({ newWord: newWord })
+        });
+        const data = await response.json();
+        console.log(data.message);
+        getCurrentWord(); // Update displayed word after changing
     } catch (error) {
-        // Handle any errors and return an error response
-        return {
-            statusCode: 500,
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Content-Type': 'application/json' // Set appropriate content type
-            },
-            body: JSON.stringify({
-                error: 'Internal Server Error'
-            })
-        };
+        console.error('Error changing word:', error);
     }
-};
+}
