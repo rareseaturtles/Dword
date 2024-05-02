@@ -1,32 +1,33 @@
 exports.handler = async (event, context) => {
-    if (event.httpMethod === 'GET') {
-        // Handle GET request to retrieve the current word
-        return {
+    try {
+        // Your function logic here
+        const currentWord = "Hello"; // Example current word
+
+        // Construct the response object with CORS headers
+        const response = {
             statusCode: 200,
-            body: JSON.stringify({ currentWord: 'Hello' }) // Default word is 'Hello'
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json' // Set appropriate content type
+            },
+            body: JSON.stringify({
+                currentWord: currentWord
+            })
         };
-    } else if (event.httpMethod === 'POST') {
-        // Handle POST request to update the word
-        try {
-            const requestBody = JSON.parse(event.body);
-            const newWord = requestBody.word;
-            // Here, you can store the new word in a database or any other storage mechanism
-            // For simplicity, we'll just return the updated word in the response
-            return {
-                statusCode: 200,
-                body: JSON.stringify({ message: `Word updated to: ${newWord}` })
-            };
-        } catch (error) {
-            return {
-                statusCode: 400,
-                body: JSON.stringify({ error: 'Invalid request body' })
-            };
-        }
-    } else {
-        // Handle unsupported HTTP methods
+
+        // Return the response
+        return response;
+    } catch (error) {
+        // Handle any errors and return an error response
         return {
-            statusCode: 405,
-            body: JSON.stringify({ error: 'Method Not Allowed' })
+            statusCode: 500,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json' // Set appropriate content type
+            },
+            body: JSON.stringify({
+                error: 'Internal Server Error'
+            })
         };
     }
 };
