@@ -35,7 +35,7 @@ exports.updateWord = async (event, context) => {
     try {
         // Parse the request body to extract the new word
         const requestBody = JSON.parse(event.body);
-        const newWord = requestBody.newWord;
+        const newWord = requestBody.word;
 
         // Update the current word
         currentWord = newWord;
@@ -65,4 +65,3 @@ exports.updateWord = async (event, context) => {
         };
     }
 };
-
