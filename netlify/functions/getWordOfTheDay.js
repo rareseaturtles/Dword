@@ -1,5 +1,5 @@
-// Define a global variable to store the current word
-let currentWord = "Hello";
+// Load the current word from environment variable or set a default value
+let currentWord = process.env.CURRENT_WORD || "Hello";
 
 // Function to retrieve the current word
 function getCurrentWord() {
@@ -20,6 +20,10 @@ exports.handler = async (event, context) => {
             const requestBody = JSON.parse(event.body);
             const newWord = requestBody.word;
             currentWord = newWord;
+            
+            // Update the environment variable with the new word
+            process.env.CURRENT_WORD = newWord;
+            
             return {
                 statusCode: 200,
                 body: JSON.stringify({ message: 'Word updated successfully' })
