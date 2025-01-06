@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 12: Carrying the Message</title>
+    <link rel="stylesheet" href="step1.css">
+</head>
+<body>
+    <header>
+        <h1>Step 12: Carrying the Message</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Understanding Step 12</h2>
+            <p>Step 12 involves having had a spiritual awakening as a result of these steps, we try to carry this message to others and practice these principles in all our affairs. This step emphasizes the importance of service, sharing experiences, and integrating the principles of the program into daily life.</p>
+        </section>
+        <section>
+            <h2>Key Concepts</h2>
+            <ul>
+                <li><strong>Spiritual Awakening:</strong> Experiencing a profound change in perception and behavior as a result of working the steps.</li>
+                <li><strong>Service to Others:</strong> Engaging in acts that help others, such as sponsorship and community involvement.</li>
+                <li><strong>Sharing Experiences:</strong> Openly discussing personal journeys to provide hope and guidance to others.</li>
+                <li><strong>Principles in All Affairs:</strong> Applying the program's principles consistently across all areas of life.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>How to Work Step 12</h2>
+            <ol>
+                <li><strong>Embrace Your Awakening:</strong> Recognize and appreciate the spiritual growth you've experienced.</li>
+                <li><strong>Engage in Service:</strong> Participate in activities that support others in their recovery journey.</li>
+                <li><strong>Share Your Story:</strong> Be open about your experiences to inspire and assist others.</li>
+                <li><strong>Integrate Principles:</strong> Apply the lessons learned from the program to all aspects of your life.</li>
+                <li><strong>Continue Personal Growth:</strong> Maintain a commitment to ongoing self-improvement and spiritual development.</li>
+            </ol>
+        </section>
+        <section>
+            <h2>Inspirational Quotes</h2>
+            <blockquote>
+                <p>"Having had a spiritual awakening as the result of these steps, we tried to carry this message to alcoholics, and to practice these principles in all our affairs." — Alcoholics Anonymous</p>
+            </blockquote>
+            <blockquote>
+                <p>"The spiritual awakening is the result of the steps, and the 12th step is the beginning of a new life of service and growth." — Twelve Steps and Twelve Traditions</p>
+            </blockquote>
+        </section>
+        <section>
+            <h2>Reflection</h2>
+            <p>Consider how sharing your journey and assisting others can enhance your own recovery. Reflect on the impact of living the program's principles in all areas of your life.</p>
+        </section>
+        <section>
+            <h2>Worksheet</h2>
+            <form id="step12Form">
+                <label for="spiritualAwakening">1. Describe your spiritual awakening and its impact on your life:</label>
+                <textarea id="spiritualAwakening" name="spiritualAwakening" required></textarea>
+
+                <label for="serviceActivities">2. List the service activities you are currently involved in:</label>
+                <textarea id="serviceActivities" name="serviceActivities" required></textarea>
+
+                <label for="sharingExperiences">3. How do you share your experiences with others in recovery?</label>
+                <textarea id="sharingExperiences" name="sharingExperiences" required></textarea>
+
+                <label for="principlesApplication">4. Provide examples of how you apply the program's principles in your daily life:</label>
+                <textarea id="principlesApplication" name="principlesApplication" required></textarea>
+
+                <label for="growthCommitment">5. Outline your plan for continued personal growth and service:</label>
+                <textarea id="growthCommitment" name="growthCommitment" required></textarea>
+
+                <button type="submit" class="button" id="saveAnswers">Save Answers</button>
+            </form>
+        </section>
+        <section>
+            <a href="step1.html" class="button">Previous Step</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Recovery Steps</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        document.getElementById('step12Form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Generate PDF using jsPDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(16);
+            doc.text('Step 12: Carrying the Message - Worksheet', 20, 20);
+
+            const formData = new FormData(this);
+            let yPosition = 40;
+            formData.forEach((value, key) => {
+                const question = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+                doc.text(`${question}:`, 20, yPosition);
+                yPosition += 10;
+                const lines = doc.splitTextToSize(value, 170);
+                doc.text(lines, 20, yPosition);
+                yPosition += lines.length * 10;
+            });
+
+            // Save the PDF
+            doc.save('step12_worksheet.pdf');
+        });
+    </script>
+</body>
+</html>
