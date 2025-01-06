@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Routine Checklist and Worksheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .section {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .checkbox {
+            margin-right: 10px;
+        }
+        .worksheet {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .worksheet input, .worksheet textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .worksheet button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .worksheet button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Daily Routine Checklist and Worksheet</h1>
+
+    <div class="section">
+        <h2>Morning Routine Checklist</h2>
+        <ul>
+            <li><input type="checkbox" class="checkbox"> Wake Up Early</li>
+            <li><input type="checkbox" class="checkbox"> Hydrate</li>
+            <li><input type="checkbox" class="checkbox"> Physical Activity</li>
+            <li><input type="checkbox" class="checkbox"> Mindfulness Practice</li>
+            <li><input type="checkbox" class="checkbox"> Gratitude Reflection</li>
+            <li><input type="checkbox" class="checkbox"> Healthy Breakfast</li>
+            <li><input type="checkbox" class="checkbox"> Review Daily Goals</li>
+            <li><input type="checkbox" class="checkbox"> Spiritual Connection</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Evening Routine Checklist</h2>
+        <ul>
+            <li><input type="checkbox" class="checkbox"> Wind Down</li>
+            <li><input type="checkbox" class="checkbox"> Reflect on the Day</li>
+            <li><input type="checkbox" class="checkbox"> Journaling</li>
+            <li><input type="checkbox" class="checkbox"> Gratitude Practice</li>
+            <li><input type="checkbox" class="checkbox"> Preparation for Tomorrow</li>
+            <li><input type="checkbox" class="checkbox"> Relaxation Techniques</li>
+            <li><input type="checkbox" class="checkbox"> Sleep Hygiene</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Daily Worksheet</h2>
+        <form class="worksheet">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="wakeUpTime">Wake-Up Time:</label>
+            <input type="time" id="wakeUpTime" name="wakeUpTime" required>
+
+            <label for="physicalActivity">Physical Activity Completed:</label>
+            <input type="text" id="physicalActivity" name="physicalActivity" required>
+
+            <label for="mindfulnessPractice">Mindfulness Practice:</label>
+            <input type="text" id="mindfulnessPractice" name="mindfulnessPractice" required>
+
+            <label for="gratitudeList">Gratitude List:</label>
+            <textarea id="gratitudeList" name="gratitudeList" rows="3" required></textarea>
+
+            <label for="breakfastConsumed">Breakfast Consumed:</label>
+            <input type="text" id="breakfastConsumed" name="breakfastConsumed" required>
+
+            <label for="dailyGoals">Daily Goals Set:</label>
+            <textarea id="dailyGoals" name="dailyGoals" rows="3" required></textarea>
+
+            <label for="spiritualConnection">Spiritual Connection Activity:</label>
+            <input type="text" id="spiritualConnection" name="spiritualConnection" required>
+
+            <label for="windDownTime">Wind-Down Time:</label>
+            <input type="time" id="windDownTime" name="windDownTime" required>
+
+            <label for="daysReflection">Day's Reflection:</label>
+            <textarea id="daysReflection" name="daysReflection" rows="3" required></textarea>
+
+            <label for="journalingInsights">Journaling Insights:</label>
+            <textarea id="journalingInsights" name="journalingInsights" rows="3" required></textarea>
+
+            <label for="preparationForTomorrow">Preparation for Tomorrow:</label>
+            <input type="text" id="preparationForTomorrow" name="preparationForTomorrow" required>
+
+            <label for="relaxationActivities">Relaxation Activities:</label>
+            <input type="text" id="relaxationActivities" name="relaxationActivities" required>
+
+            <label for="sleepEnvironment">Sleep Environment Check:</label>
+            <input type="text" id="sleepEnvironment" name="sleepEnvironment" required>
+
+            <button type="submit">Save Answers</button>
+        </form>
+    </div>
+</body>
+</html>
