@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Step 3: Turning Over Our Will</title>
     <link rel="stylesheet" href="checklist1.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <header>
@@ -31,7 +32,7 @@
             </blockquote>
             <blockquote>
                 <p>"The essence of step three is turning over your will, getting out of the way, and being restored to reality, honesty, balance, and peace of mind."</p>
-                <footer>— <cite>Jason Wahler</cite> :contentReference[oaicite:0]{index=0}</footer>
+                <footer>— <cite>Jason Wahler</cite></footer>
             </blockquote>
         </section>
         <section>
@@ -39,11 +40,61 @@
             <p>Consider what surrendering your will means to you and how trusting a Higher Power can aid in your recovery. Reflect on the steps you can take to demonstrate your commitment to this decision.</p>
         </section>
         <section>
-            <a href="step3work.html" class="button">Proceed to Step 3 Worksheet</a>
+            <h2>Step 3 Checklist</h2>
+            <form id="step3ChecklistForm">
+                <label>
+                    <input type="checkbox" name="acknowledgePowerlessness">
+                    Acknowledge personal powerlessness over addiction.
+                </label><br>
+                <label>
+                    <input type="checkbox" name="defineHigherPower">
+                    Define your understanding of a Higher Power.
+                </label><br>
+                <label>
+                    <input type="checkbox" name="commitToSurrender">
+                    Commit to surrendering your will to this Higher Power.
+                </label><br>
+                <label>
+                    <input type="checkbox" name="seekGuidance">
+                    Seek guidance through prayer or meditation.
+                </label><br>
+                <label>
+                    <input type="checkbox" name="shareDecision">
+                    Share your decision with a trusted individual or group.
+                </label><br>
+                <button type="submit" class="button" id="saveChecklist">Save Answers</button>
+            </form>
+        </section>
+        <section>
+            <a href="step4_intro.html" class="button">Next Step</a>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 Recovery Steps</p>
     </footer>
+    <script>
+        document.getElementById('step3ChecklistForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Generate PDF using jsPDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(16);
+            doc.text('Step 3: Turning Over Our Will - Checklist', 20, 20);
+
+            const formData = new FormData(this);
+            let yPosition = 40;
+            formData.forEach((value, key) => {
+                const question = key.replace(/([A-Z])/g, ' $1').toUpperCase();
+                const answer = value ? 'Completed' : 'Not Completed';
+                doc.text(`${question}: ${answer}`, 20, yPosition);
+                yPosition += 10;
+            });
+
+            // Save the PDF
+            doc.save('step3_checklist.pdf');
+        });
+    </script>
 </body>
 </html>
