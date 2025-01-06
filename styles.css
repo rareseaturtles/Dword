@@ -54,7 +54,7 @@ h1 {
 }
 
 h2 {
-    color: #3498db;
+    color: #005f73;
 }
 
 blockquote {
@@ -78,7 +78,7 @@ ul li {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #3498db;
+    background-color: #005f73;
     color: #fff;
     border-radius: 5px;
     text-decoration: none;
@@ -87,7 +87,7 @@ ul li {
 }
 
 .next-step-button:hover {
-    background-color: #2980b9;
+    background-color: #005f73;
 }
 
 /* Footer Styling */
