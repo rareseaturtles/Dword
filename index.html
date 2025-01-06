@@ -3,44 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>12-Step Guide</title>
+    <title>Step One: Admission of Powerlessness</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <h1>Step One: Admission of Powerlessness</h1>
-        <p>Step One of the Twelve Steps is foundational to the recovery process...</p>
-        <!-- Step 1 Content -->
-        <div id="step1">
-            <p><strong>Explanation:</strong> This step requires individuals to confront the reality of their addiction...</p>
-            <p><strong>Practical Application:</strong></p>
-            <ul>
-                <li>Self-Reflection: Reflect on past attempts to control or quit substance use...</li>
-                <li>Identify Consequences: List the ways addiction has negatively impacted various aspects of life...</li>
-                <li>Acceptance: Embrace the understanding that willpower alone is insufficient to overcome addiction...</li>
-            </ul>
-            <button id="nextStepBtn">Next Step</button>
-        </div>
-        <!-- Checklist Modal -->
-        <div id="checklistModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Checklist</h2>
-                <form id="checklistForm">
-                    <label><input type="checkbox" name="controlAttempts"> Have I tried to control my substance use without success?</label><br>
-                    <label><input type="checkbox" name="negativeConsequences"> Have I experienced negative consequences in my life due to my addiction?</label><br>
-                    <label><input type="checkbox" name="acknowledgment"> Am I willing to acknowledge my powerlessness over my addiction?</label><br>
-                    <label><input type="checkbox" name="needHelp"> Do I recognize the need for help and support in my recovery journey?</label><br>
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
-        </div>
-        <!-- Step 2 Content -->
-        <div id="step2" style="display: none;">
-            <p><strong>Step Two:</strong> "Came to believe that a Power greater than ourselves could restore us to sanity."</p>
-            <!-- Additional content for Step 2 -->
-        </div>
+        <p><strong>Step One of the Twelve Steps is foundational to the recovery process, emphasizing the necessity of acknowledging one's addiction and the resulting unmanageability of life. This step serves as the cornerstone upon which the subsequent steps are built, fostering acceptance and openness to change.</strong></p>
+        <p><strong>"We admitted we were powerless over alcohol—that our lives had become unmanageable." — Alcoholics Anonymous</strong></p>
+        <h2>Explanation:</h2>
+        <p>This step requires individuals to confront the reality of their addiction, recognizing that their efforts to control substance use have been unsuccessful, leading to chaos and dysfunction in their lives. Acknowledging powerlessness is not an admission of defeat but a courageous step toward recovery, signifying readiness to seek help and embrace change.</p>
+        <h2>Practical Application:</h2>
+        <ul>
+            <li><strong>Self-Reflection:</strong> Reflect on past attempts to control or quit substance use. Consider the outcomes and patterns that emerged.</li>
+            <li><strong>Identify Consequences:</strong> List the ways addiction has negatively impacted various aspects of life, including relationships, health, and personal goals.</li>
+            <li><strong>Acceptance:</strong> Embrace the understanding that willpower alone is insufficient to overcome addiction, and recognize the need for external support and guidance.</li>
+        </ul>
+        <h2>Checklist:</h2>
+        <ul>
+            <li>Have I tried to control my substance use without success?</li>
+            <li>Have I experienced negative consequences in my life due to my addiction?</li>
+            <li>Am I willing to acknowledge my powerlessness over my addiction?</li>
+            <li>Do I recognize the need for help and support in my recovery journey?</li>
+        </ul>
+        <form id="stepOneForm">
+            <label for="relationship">Describe your relationship with the substance:</label>
+            <textarea id="relationship" name="relationship" required></textarea>
+
+            <label for="attempts">Attempts to Control Use:</label>
+            <textarea id="attempts" name="attempts" required></textarea>
+
+            <label for="consequences">Consequences Faced:</label>
+            <textarea id="consequences" name="consequences" required></textarea>
+
+            <label for="powerlessness">Feelings of Powerlessness:</label>
+            <textarea id="powerlessness" name="powerlessness" required></textarea>
+
+            <label for="unmanageability">Life's Unmanageability:</label>
+            <textarea id="unmanageability" name="unmanageability" required></textarea>
+
+            <button type="submit">Generate PDF</button>
+        </form>
+        <button id="nextStepButton">Next Step</button>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
