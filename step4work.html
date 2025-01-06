@@ -14,7 +14,7 @@
             text-align: center;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background-color: #fff;
             padding: 20px;
@@ -54,22 +54,76 @@
     <h1>Fourth Step Inventory Worksheet</h1>
     <div class="container">
         <form action="/submit_inventory" method="POST">
+            <!-- Resentments Section -->
             <div class="section">
                 <label for="resentments">Resentments</label>
                 <textarea id="resentments" name="resentments" placeholder="List your resentments here..."></textarea>
+                <p><strong>Questions to Consider:</strong></p>
+                <ul>
+                    <li>Who do you resent?</li>
+                    <li>What is the cause of your resentment?</li>
+                    <li>What is your part in the resentment?</li>
+                    <li>What is the underlying fear associated with this resentment?</li>
+                    <li>What is the harm caused by this resentment?</li>
+                </ul>
             </div>
+
+            <!-- Fears Section -->
             <div class="section">
                 <label for="fears">Fears</label>
                 <textarea id="fears" name="fears" placeholder="List your fears here..."></textarea>
+                <p><strong>Questions to Consider:</strong></p>
+                <ul>
+                    <li>What are your fears?</li>
+                    <li>What is the basis of these fears?</li>
+                    <li>How do these fears affect your life?</li>
+                    <li>What is the worst thing that could happen if your fear came true?</li>
+                    <li>What is your part in these fears?</li>
+                </ul>
             </div>
+
+            <!-- Sexual Conduct Section -->
             <div class="section">
-                <label for="harms">Harms Done to Others</label>
-                <textarea id="harms" name="harms" placeholder="List the harms you've done to others here..."></textarea>
+                <label for="sexual_conduct">Sexual Conduct</label>
+                <textarea id="sexual_conduct" name="sexual_conduct" placeholder="Reflect on your sexual conduct here..."></textarea>
+                <p><strong>Questions to Consider:</strong></p>
+                <ul>
+                    <li>Have you been selfish or inconsiderate in your sexual conduct?</li>
+                    <li>Have you been dishonest or manipulative?</li>
+                    <li>Have you been exploitative or abusive?</li>
+                    <li>Have you been unfaithful or deceitful?</li>
+                    <li>What harm have you caused to others through your sexual conduct?</li>
+                </ul>
             </div>
+
+            <!-- Harms Done to Others Section -->
+            <div class="section">
+                <label for="harms_done">Harms Done to Others</label>
+                <textarea id="harms_done" name="harms_done" placeholder="List the harms you've done to others here..."></textarea>
+                <p><strong>Questions to Consider:</strong></p>
+                <ul>
+                    <li>Who have you harmed?</li>
+                    <li>What was the nature of the harm?</li>
+                    <li>What was your motive or justification?</li>
+                    <li>What was the impact of your actions on the other person?</li>
+                    <li>What is your part in the harm caused?</li>
+                </ul>
+            </div>
+
+            <!-- Assets Section -->
             <div class="section">
                 <label for="assets">Assets</label>
                 <textarea id="assets" name="assets" placeholder="List your assets here..."></textarea>
+                <p><strong>Questions to Consider:</strong></p>
+                <ul>
+                    <li>What are your strengths and positive qualities?</li>
+                    <li>What virtues do you possess?</li>
+                    <li>What talents or skills do you have?</li>
+                    <li>What positive actions have you taken?</li>
+                    <li>How have you contributed to the well-being of others?</li>
+                </ul>
             </div>
+
             <input type="submit" value="Submit Inventory">
         </form>
     </div>
