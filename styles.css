@@ -25,88 +25,68 @@ h1 {
 }
 
 /* Navigation Styling */
-nav {
+.navbar {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+    background-color: #3498db;
+    padding: 10px 0;
 }
 
-.tabs {
-    display: flex;
-    cursor: pointer;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.tab {
-    padding: 14px 20px;
-    flex: 1;
-    text-align: center;
-    background-color: inherit;
-    border: none;
-    outline: none;
-    cursor: pointer;
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
     transition: background-color 0.3s;
 }
 
-.tab:hover {
-    background-color: #f1f1f1;
+.navbar a:hover, .navbar .active {
+    background-color: #2980b9;
 }
 
-.tab.active {
-    background-color: #3498db;
-    color: #fff;
-}
-
-/* Tab Content Styling */
-.tab-content {
-    display: none;
+/* Main Content Styling */
+.content {
     padding: 20px;
     background-color: #fff;
-    border: 1px solid #ccc;
-    border-top: none;
     border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.tab-content.active {
-    display: block;
+h2 {
+    color: #3498db;
 }
 
-/* Form Styling */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-label {
-    font-weight: bold;
-}
-
-textarea {
-    width: 100%;
+blockquote {
+    font-style: italic;
+    background-color: #ecf0f1;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: vertical;
+    border-left: 5px solid #3498db;
+    margin: 20px 0;
+}
+
+ul {
+    margin: 15px 0;
+}
+
+ul li {
+    margin: 5px 0;
 }
 
 /* Button Styling */
-.button {
+.next-step-button {
+    display: inline-block;
+    margin-top: 20px;
     padding: 10px 20px;
     background-color: #3498db;
     color: #fff;
-    border: none;
     border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
     text-decoration: none;
-    display: inline-block;
+    text-align: center;
     transition: background-color 0.3s;
 }
 
-.button:hover {
+.next-step-button:hover {
     background-color: #2980b9;
 }
 
