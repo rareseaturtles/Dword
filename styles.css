@@ -38,29 +38,6 @@ p {
     margin-bottom: 20px;
 }
 
-/* Form Styling */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-/* Label Styling */
-label {
-    font-size: 1rem;
-    color: #333;
-}
-
-/* Textarea Styling */
-textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    resize: vertical;
-}
-
 /* Button Styling */
 button {
     background-color: #4CAF50;
@@ -81,18 +58,50 @@ button:hover {
     background-color: #45a049;
 }
 
-/* Checklist Styling */
-ul {
-    list-style-type: none;
-    padding-left: 0;
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-ul li {
-    margin-bottom: 10px;
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
     font-size: 1rem;
     color: #333;
-}
-
-ul li input[type="checkbox"] {
-    margin-right: 10px;
 }
