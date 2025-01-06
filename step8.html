@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 8: Preparing to Make Amends</title>
+    <link rel="stylesheet" href="step1.css">
+</head>
+<body>
+    <header>
+        <h1>Step 8: Preparing to Make Amends</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Understanding Step 8</h2>
+            <p>Step 8 involves making a list of all persons we have harmed and becoming willing to make amends to them all. This step is crucial in acknowledging the impact of our actions and preparing for reconciliation.</p>
+        </section>
+        <section>
+            <h2>Key Concepts</h2>
+            <ul>
+                <li><strong>Acknowledgment:</strong> Recognizing the individuals affected by our past behaviors.</li>
+                <li><strong>Willingness:</strong> Developing a sincere desire to make amends.</li>
+                <li><strong>Forgiveness:</strong> Understanding the importance of forgiving ourselves and seeking forgiveness from others.</li>
+                <li><strong>Healing:</strong> Embracing the process of repairing relationships and personal growth.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>How to Work Step 8</h2>
+            <ol>
+                <li><strong>Reflect on Past Actions:</strong> Review your personal inventory to identify those you have harmed.</li>
+                <li><strong>Create the Amends List:</strong> Write down the names of individuals and specify the harm caused.</li>
+                <li><strong>Assess Willingness:</strong> Ensure you are genuinely willing to make amends to each person on the list.</li>
+                <li><strong>Seek Guidance:</strong> Discuss your list with a sponsor or trusted mentor for insights and support.</li>
+                <li><strong>Prepare for Step 9:</strong> Understand that Step 8 is about readiness; the actual amends will be made in Step 9.</li>
+            </ol>
+        </section>
+        <section>
+            <h2>Inspirational Quotes</h2>
+            <blockquote>
+                <p>"Made a list of all persons we had harmed, and became willing to make amends to them all." — Alcoholics Anonymous</p>
+            </blockquote>
+            <blockquote>
+                <p>"Forgiveness does not change the past, but it does enlarge the future." — Paul Boese</p>
+            </blockquote>
+        </section>
+        <section>
+            <h2>Reflection</h2>
+            <p>Consider how acknowledging those you've harmed can lead to personal healing. Reflect on the importance of willingness in the process of making amends and how it prepares you for the next steps in your recovery journey.</p>
+        </section>
+        <section>
+            <h2>Worksheet</h2>
+            <form id="step8Form">
+                <label for="harmedIndividuals">1. List the individuals you have harmed and describe the nature of the harm:</label>
+                <textarea id="harmedIndividuals" name="harmedIndividuals" required></textarea>
+
+                <label for="willingnessAssessment">2. Assess your willingness to make amends to each person. If unwilling, explore the reasons:</label>
+                <textarea id="willingnessAssessment" name="willingnessAssessment" required></textarea>
+
+                <label for="forgivenessReflection">3. Reflect on the role of forgiveness in this process, both for yourself and others:</label>
+                <textarea id="forgivenessReflection" name="forgivenessReflection" required></textarea>
+
+                <label for="supportPlan">4. Identify who can support you as you prepare to make amends:</label>
+                <textarea id="supportPlan" name="supportPlan" required></textarea>
+
+                <button type="submit" class="button" id="saveAnswers">Save Answers</button>
+            </form>
+        </section>
+        <section>
+            <a href="step9.html" class="button">Next Step</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Recovery Steps</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        document.getElementById('step8Form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Generate PDF using jsPDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(16);
+            doc.text('Step 8: Preparing to Make Amends - Worksheet', 20, 20);
+
+            const formData = new FormData(this);
+            let yPosition = 40;
+            formData.forEach((value, key) => {
+                const question = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+                doc.text(`${question}:`, 20, yPosition);
+                yPosition += 10;
+                const lines = doc.splitTextToSize(value, 170);
+                doc.text(lines, 20, yPosition);
+                yPosition += lines.length * 10;
+            });
+
+            // Save the PDF
+            doc.save('step8_worksheet.pdf');
+        });
+    </script>
+</body>
+</html>
