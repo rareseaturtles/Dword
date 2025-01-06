@@ -1,1 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 1: Worksheet</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Step 1: Worksheet</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Worksheet Questions</h2>
+            <form id="worksheetForm">
+                <label for="question1">1. Reflect on past attempts to control or quit substance use. What were the outcomes?</label>
+                <textarea id="question1" name="question1" required></textarea>
+
+                <label for="question2">2. Identify the ways addiction has negatively impacted various aspects of your life.</label>
+                <textarea id="question2" name="question2" required></textarea>
+
+                <label for="question3">3. Embrace the understanding that willpower alone is insufficient. How do you feel about seeking external support?</label>
+                <textarea id="question3" name="question3" required></textarea>
+
+                <button type="button" class="button" id="generatePDF">Generate PDF</button>
+                <a href="step2.html" class="button">Next Step</a>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Recovery Steps</p>
+    </footer>
+    <script src="jspdf.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
 
