@@ -1,1 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step One: Admission of Powerlessness</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Step One: Admission of Powerlessness</h1>
+        <form id="stepOneForm">
+            <label for="relationship">Describe your relationship with the substance:</label>
+            <textarea id="relationship" name="relationship" required></textarea>
+
+            <label for="attempts">Attempts to Control Use:</label>
+            <textarea id="attempts" name="attempts" required></textarea>
+
+            <label for="consequences">Consequences Faced:</label>
+            <textarea id="consequences" name="consequences" required></textarea>
+
+            <label for="powerlessness">Feelings of Powerlessness:</label>
+            <textarea id="powerlessness" name="powerlessness" required></textarea>
+
+            <label for="unmanageability">Life's Unmanageability:</label>
+            <textarea id="unmanageability" name="unmanageability" required></textarea>
+
+            <button type="submit">Generate PDF</button>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
 
