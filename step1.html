@@ -23,6 +23,7 @@
                 <label for="question3">3. Embrace the understanding that willpower alone is insufficient. How do you feel about seeking external support?</label>
                 <textarea id="question3" name="question3" required></textarea>
 
+                <button type="button" class="button" id="generatePDF">Generate PDF</button>
                 <a href="checklist1.html" class="button">Next Step</a>
             </form>
         </section>
@@ -31,7 +32,27 @@
         <p>&copy; 2024 Recovery Steps</p>
     </footer>
     <script src="jspdf.min.js"></script>
-    <script src="scripts.js"></script>
+    <script>
+        document.getElementById('generatePDF').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default button action
+
+            // Generate PDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(16);
+            doc.text('Step 1: Worksheet Responses', 20, 20);
+
+            const formData = new FormData(document.getElementById('worksheetForm'));
+            let yPosition = 40;
+            formData.forEach((value, key) => {
+                doc.text(`${key.replace(/([A-Z])/g, ' $1')}: ${value}`, 20, yPosition);
+                yPosition += 10;
+            });
+
+            // Save the PDF
+            doc.save('step1_worksheet.pdf');
+        });
+    </script>
 </body>
 </html>
-
