@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 9: Making Direct Amends</title>
+    <link rel="stylesheet" href="step1.css">
+</head>
+<body>
+    <header>
+        <h1>Step 9: Making Direct Amends</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Understanding Step 9</h2>
+            <p>Step 9 involves making direct amends to those we've harmed, except when doing so would cause further injury. This step is crucial in repairing relationships and fostering personal healing.</p>
+        </section>
+        <section>
+            <h2>Key Concepts</h2>
+            <ul>
+                <li><strong>Accountability:</strong> Taking responsibility for our actions and their impact on others.</li>
+                <li><strong>Restitution:</strong> Making efforts to repair the harm caused, whether through apologies or other means.</li>
+                <li><strong>Discernment:</strong> Recognizing situations where making amends might cause additional harm and proceeding with caution.</li>
+                <li><strong>Healing:</strong> Facilitating mutual healing through the process of making amends.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>How to Work Step 9</h2>
+            <ol>
+                <li><strong>Review Your Amends List:</strong> Refer to the list created in Step 8 to identify individuals to whom you owe amends.</li>
+                <li><strong>Assess Each Situation:</strong> Determine the appropriate approach for each person, considering the potential impact of making amends.</li>
+                <li><strong>Plan Your Approach:</strong> Decide on the best method to make amends—whether in person, through a letter, or another means.</li>
+                <li><strong>Seek Guidance:</strong> Consult with a sponsor or mentor to gain insights and ensure your approach is appropriate.</li>
+                <li><strong>Make Amends:</strong> Reach out to the individuals, offer sincere apologies, and take responsibility for your actions.</li>
+                <li><strong>Accept Outcomes:</strong> Understand that the response of others is beyond your control; focus on your commitment to making amends.</li>
+            </ol>
+        </section>
+        <section>
+            <h2>Inspirational Quotes</h2>
+            <blockquote>
+                <p>"Made direct amends to such people wherever possible, except when to do so would injure them or others." — Alcoholics Anonymous</p>
+            </blockquote>
+            <blockquote>
+                <p>"Forgiveness does not change the past, but it does enlarge the future." — Paul Boese</p>
+            </blockquote>
+        </section>
+        <section>
+            <h2>Reflection</h2>
+            <p>Consider how making amends can lead to personal and relational healing. Reflect on the importance of taking responsibility for your actions and the freedom that comes from addressing past harms.</p>
+        </section>
+        <section>
+            <h2>Worksheet</h2>
+            <form id="step9Form">
+                <label for="amendsPlan">1. List the individuals you need to make amends to and describe your plan for each:</label>
+                <textarea id="amendsPlan" name="amendsPlan" required></textarea>
+
+                <label for="potentialHarmAssessment">2. Assess any potential harm that making amends might cause and how you plan to mitigate it:</label>
+                <textarea id="potentialHarmAssessment" name="potentialHarmAssessment" required></textarea>
+
+                <label for="supportResources">3. Identify resources or individuals who can support you through this process:</label>
+                <textarea id="supportResources" name="supportResources" required></textarea>
+
+                <label for="personalReflection">4. Reflect on your feelings about making amends and any fears or concerns you may have:</label>
+                <textarea id="personalReflection" name="personalReflection" required></textarea>
+
+                <button type="submit" class="button" id="saveAnswers">Save Answers</button>
+            </form>
+        </section>
+        <section>
+            <a href="step10.html" class="button">Next Step</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Recovery Steps</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        document.getElementById('step9Form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Generate PDF using jsPDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(16);
+            doc.text('Step 9: Making Direct Amends - Worksheet', 20, 20);
+
+            const formData = new FormData(this);
+            let yPosition = 40;
+            formData.forEach((value, key) => {
+                const question = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+                doc.text(`${question}:`, 20, yPosition);
+                yPosition += 10;
+                const lines = doc.splitTextToSize(value, 170);
+                doc.text(lines, 20, yPosition);
+                yPosition += lines.length * 10;
+            });
+
+            // Save the PDF
+            doc.save('step9_worksheet.pdf');
+        });
+    </script>
+</body>
+</html>
