@@ -40,7 +40,7 @@
             const formData = new FormData(this);
             let yPosition = 40;
             formData.forEach((value, key) => {
-                doc.text(`${key}: ${value ? 'Completed' : 'Not Completed'}`, 20, yPosition);
+                doc.text(`${key.replace(/([A-Z])/g, ' $1').toUpperCase()}: ${value ? 'Completed' : 'Not Completed'}`, 20, yPosition);
                 yPosition += 10;
             });
 
