@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 2: Belief in a Higher Power - Checklist</title>
+    <link rel="stylesheet" href="checklist1.css">
+</head>
+<body>
+    <header>
+        <h1>Step 2: Belief in a Higher Power - Checklist</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Checklist</h2>
+            <form id="checklistForm">
+                <label>
+                    <input type="checkbox" name="understanding" id="understanding">
+                    I have described my understanding of a higher power.
+                </label><br>
+
+                <label>
+                    <input type="checkbox" name="restoration" id="restoration">
+                    I have reflected on how a higher power can restore me to sanity.
+                </label><br>
+
+                <label>
+                    <input type="checkbox" name="surrender" id="surrender">
+                    I have considered what surrendering to a higher power means to me.
+                </label><br>
+
+                <label>
+                    <input type="checkbox" name="support" id="support">
+                    I have identified how seeking support from others can help me in this step.
+                </label><br>
+
+                <button type="submit" class="button" id="nextStep">Next Step</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Recovery Steps</p>
+    </footer>
+
+    <script>
+        document.getElementById('checklistForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Check if all checkboxes are checked
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            let allChecked = true;
+            checkboxes.forEach(function(checkbox) {
+                if (!checkbox.checked) {
+                    allChecked = false;
+                }
+            });
+
+            if (allChecked) {
+                // Redirect to the next step page
+                window.location.href = 'next_step.html'; // Replace with your actual next step page URL
+            } else {
+                alert('Please complete all items before proceeding.');
+            }
+        });
+    </script>
+</body>
+</html>
