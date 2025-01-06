@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Step 2: Belief in a Higher Power</title>
     <link rel="stylesheet" href="step1.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <header>
@@ -27,26 +28,31 @@
                 <textarea id="support" name="support" required></textarea>
 
                 <button type="submit" class="button" id="generatePDF">Save Answers</button>
+                <a href="checklist2.html" class="button" id="checklistButton">Checklist</a>
             </form>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 Recovery Steps</p>
     </footer>
+
     <script>
+        // Adding event listener to the form for PDF generation
         document.getElementById('step2Form').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent default form submission
 
-            // Generate PDF
+            // Generate PDF using jsPDF
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
             doc.setFontSize(16);
             doc.text('Step 2: Belief in a Higher Power Worksheet', 20, 20);
 
+            // Extract form data
             const formData = new FormData(this);
             let yPosition = 40;
             formData.forEach((value, key) => {
+                // Handle form data and format as "Question: Answer"
                 doc.text(`${key.replace(/([A-Z])/g, ' $1')}: ${value}`, 20, yPosition);
                 yPosition += 10;
             });
