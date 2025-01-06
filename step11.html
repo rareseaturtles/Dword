@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 11: Enhancing Spiritual Connection</title>
+    <link rel="stylesheet" href="step1.css">
+</head>
+<body>
+    <header>
+        <h1>Step 11: Enhancing Spiritual Connection</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Understanding Step 11</h2>
+            <p>Step 11 involves seeking through prayer and meditation to improve our conscious contact with God as we understand Him, praying only for knowledge of His will for us and the power to carry that out. This step emphasizes the importance of spiritual growth and guidance in the recovery process.</p>
+        </section>
+        <section>
+            <h2>Key Concepts</h2>
+            <ul>
+                <li><strong>Spiritual Practice:</strong> Engaging in regular prayer and meditation to deepen spiritual awareness.</li>
+                <li><strong>Conscious Contact:</strong> Developing a mindful and intentional relationship with a higher power.</li>
+                <li><strong>Seeking Guidance:</strong> Asking for insight into the higher power's will and the strength to follow it.</li>
+                <li><strong>Personalized Understanding:</strong> Recognizing that each individual's concept of a higher power is unique and personal.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>How to Work Step 11</h2>
+            <ol>
+                <li><strong>Establish a Routine:</strong> Set aside dedicated time daily for prayer and meditation.</li>
+                <li><strong>Define Your Practice:</strong> Determine what forms of prayer and meditation resonate with you, acknowledging that spirituality is personal and can evolve over time.</li>
+                <li><strong>Seek Understanding:</strong> Focus your practice on gaining insight into your higher power's will for you.</li>
+                <li><strong>Request Strength:</strong> Pray for the power to carry out the guidance you receive.</li>
+                <li><strong>Maintain Openness:</strong> Stay receptive to spiritual experiences and insights that may arise.</li>
+                <li><strong>Reflect and Adjust:</strong> Regularly assess your spiritual practices and make adjustments as needed to deepen your connection.</li>
+            </ol>
+        </section>
+        <section>
+            <h2>Inspirational Quotes</h2>
+            <blockquote>
+                <p>"Sought through prayer and meditation to improve our conscious contact with God as we understood Him, praying only for knowledge of His will for us and the power to carry that out." — Alcoholics Anonymous</p>
+            </blockquote>
+            <blockquote>
+                <p>"Prayer and meditation are our principal means of conscious contact with God." — Twelve Steps and Twelve Traditions</p>
+            </blockquote>
+        </section>
+        <section>
+            <h2>Reflection</h2>
+            <p>Consider how enhancing your spiritual connection can provide guidance and strength in your recovery journey. Reflect on the personal nature of your relationship with your higher power and how it influences your daily life.</p>
+        </section>
+        <section>
+            <h2>Worksheet</h2>
+            <form id="step11Form">
+                <label for="currentPractices">1. Describe your current prayer and meditation practices:</label>
+                <textarea id="currentPractices" name="currentPractices" required></textarea>
+
+                <label for="spiritualGoals">2. Identify your goals for improving conscious contact with your higher power:</label>
+                <textarea id="spiritualGoals" name="spiritualGoals" required></textarea>
+
+                <label for="guidanceReceived">3. Reflect on any guidance or insights you've received during your spiritual practices:</label>
+                <textarea id="guidanceReceived" name="guidanceReceived" required></textarea>
+
+                <label for="implementationPlan">4. Outline how you plan to implement the guidance you've received into your daily life:</label>
+                <textarea id="implementationPlan" name="implementationPlan" required></textarea>
+
+                <button type="submit" class="button" id="saveAnswers">Save Answers</button>
+            </form>
+        </section>
+        <section>
+            <a href="step12.html" class="button">Next Step</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Recovery Steps</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        document.getElementById('step11Form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Generate PDF using jsPDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(16);
+            doc.text('Step 11: Enhancing Spiritual Connection - Worksheet', 20, 20);
+
+            const formData = new FormData(this);
+            let yPosition = 40;
+            formData.forEach((value, key) => {
+                const question = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+                doc.text(`${question}:`, 20, yPosition);
+                yPosition += 10;
+                const lines = doc.splitTextToSize(value, 170);
+                doc.text(lines, 20, yPosition);
+                yPosition += lines.length * 10;
+            });
+
+            // Save the PDF
+            doc.save('step11_worksheet.pdf');
+        });
+    </script>
+</body>
+</html>
