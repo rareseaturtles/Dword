@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 7: Humbly Asking for Removal of Shortcomings</title>
+    <link rel="stylesheet" href="step1.css">
+</head>
+<body>
+    <header>
+        <h1>Step 7: Humbly Asking for Removal of Shortcomings</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Understanding Step 7</h2>
+            <p>Step 7 involves humbly asking our Higher Power to remove our shortcomings. This step emphasizes humility and the acknowledgment that we cannot overcome our character defects solely through our own efforts.</p>
+        </section>
+        <section>
+            <h2>Key Concepts</h2>
+            <ul>
+                <li><strong>Humility:</strong> Recognizing our limitations and seeking assistance beyond ourselves.</li>
+                <li><strong>Acceptance:</strong> Acknowledging our flaws without self-condemnation.</li>
+                <li><strong>Faith:</strong> Trusting in a Higher Power to facilitate our personal growth.</li>
+                <li><strong>Transformation:</strong> Embracing the process of change and self-improvement.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>How to Work Step 7</h2>
+            <ol>
+                <li><strong>Reflect on Your Shortcomings:</strong> Review the character defects identified in previous steps.</li>
+                <li><strong>Practice Humility:</strong> Acknowledge that you need help beyond your own abilities to overcome these shortcomings.</li>
+                <li><strong>Pray or Meditate:</strong> Humbly ask your Higher Power to remove your defects of character.</li>
+                <li><strong>Seek Support:</strong> Discuss your journey with a sponsor or support group to gain insights and encouragement.</li>
+                <li><strong>Embrace Patience:</strong> Understand that change is a gradual process and requires ongoing effort.</li>
+            </ol>
+        </section>
+        <section>
+            <h2>Inspirational Quotes</h2>
+            <blockquote>
+                <p>"Humbly asked Him to remove our shortcomings." — Alcoholics Anonymous</p>
+            </blockquote>
+            <blockquote>
+                <p>"My Creator, I am now willing that you should have all of me, good and bad. I pray that you now remove from me every single defect of character which stands in the way of my usefulness to you and my fellows." — Seventh Step Prayer</p>
+            </blockquote>
+        </section>
+        <section>
+            <h2>Reflection</h2>
+            <p>Consider how humility plays a role in your recovery. Reflect on the importance of seeking help and the freedom that comes from releasing your shortcomings to a Higher Power.</p>
+        </section>
+        <section>
+            <h2>Worksheet</h2>
+            <form id="step7Form">
+                <label for="shortcomingsList">1. List the shortcomings you are ready to have removed:</label>
+                <textarea id="shortcomingsList" name="shortcomingsList" required></textarea>
+
+                <label for="humilityExperience">2. How has practicing humility impacted your recovery journey?</label>
+                <textarea id="humilityExperience" name="humilityExperience" required></textarea>
+
+                <label for="higherPowerRole">3. Describe your relationship with your Higher Power in the context of this step:</label>
+                <textarea id="higherPowerRole" name="higherPowerRole" required></textarea>
+
+                <label for="supportSystem">4. Who can you rely on for support as you work through Step 7?</label>
+                <textarea id="supportSystem" name="supportSystem" required></textarea>
+
+                <button type="submit" class="button" id="saveAnswers">Save Answers</button>
+            </form>
+        </section>
+        <section>
+            <a href="step8_intro.html" class="button">Next Step</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Recovery Steps</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        document.getElementById('step7Form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Generate PDF using jsPDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(16);
+            doc.text('Step 7: Humbly Asking for Removal of Shortcomings - Worksheet', 20, 20);
+
+            const formData = new FormData(this);
+            let yPosition = 40;
+            formData.forEach((value, key) => {
+                const question = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+                doc.text(`${question}:`, 20, yPosition);
+                yPosition += 10;
+                const lines = doc.splitTextToSize(value, 170);
+                doc.text(lines, 20, yPosition);
+                yPosition += lines.length * 10;
+            });
+
+            // Save the PDF
+            doc.save('step7_worksheet.pdf');
+        });
+    </script>
+</body>
+</html>
