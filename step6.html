@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 6: Becoming Ready for Character Transformation</title>
+    <link rel="stylesheet" href="step1.css">
+</head>
+<body>
+    <header>
+        <h1>Step 6: Becoming Ready for Character Transformation</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Understanding Step 6</h2>
+            <p>Step 6 involves becoming entirely ready to have our defects of character removed. This step signifies a willingness to let go of negative traits and behaviors that hinder our recovery and personal growth.</p>
+        </section>
+        <section>
+            <h2>Key Concepts</h2>
+            <ul>
+                <li><strong>Recognition:</strong> Identifying personal character defects that impede progress.</li>
+                <li><strong>Willingness:</strong> Developing a sincere desire to let go of these defects.</li>
+                <li><strong>Humility:</strong> Accepting that change requires openness and acceptance.</li>
+                <li><strong>Readiness:</strong> Preparing oneself mentally and spiritually for transformation.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>How to Work Step 6</h2>
+            <ol>
+                <li><strong>Reflect on Previous Steps:</strong> Review your personal inventory and the admissions made in Steps 4 and 5 to identify defects of character.</li>
+                <li><strong>Acknowledge Each Defect:</strong> Clearly recognize and accept the specific defects you wish to change.</li>
+                <li><strong>Develop Willingness:</strong> Cultivate a genuine readiness to let go of these defects, understanding their impact on your life.</li>
+                <li><strong>Seek Support:</strong> Engage with your support network, such as sponsors or support groups, to discuss your readiness and seek guidance.</li>
+                <li><strong>Practice Patience:</strong> Understand that becoming entirely ready is a process that requires time and self-compassion.</li>
+            </ol>
+        </section>
+        <section>
+            <h2>Inspirational Quotes</h2>
+            <blockquote>
+                <p>"The important thing is this: to be able at any moment to sacrifice what we are for what we could become." — Charles Dubois</p>
+            </blockquote>
+        </section>
+        <section>
+            <h2>Reflection</h2>
+            <p>Consider how your character defects have affected your life and relationships. Reflect on the benefits of releasing these defects and how doing so can enhance your recovery journey.</p>
+        </section>
+        <section>
+            <h2>Worksheet</h2>
+            <form id="step6Form">
+                <label for="identifiedDefects">1. List the character defects you've identified:</label>
+                <textarea id="identifiedDefects" name="identifiedDefects" required></textarea>
+
+                <label for="impactOfDefects">2. Describe how these defects have impacted your life:</label>
+                <textarea id="impactOfDefects" name="impactOfDefects" required></textarea>
+
+                <label for="willingnessToChange">3. How willing are you to let go of these defects? What steps can you take to increase your willingness?</label>
+                <textarea id="willingnessToChange" name="willingnessToChange" required></textarea>
+
+                <label for="supportPlan">4. Who can you reach out to for support as you work on this step?</label>
+                <textarea id="supportPlan" name="supportPlan" required></textarea>
+
+                <button type="submit" class="button" id="saveAnswers">Save Answers</button>
+            </form>
+        </section>
+        <section>
+            <a href="step7_intro.html" class="button">Next Step</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Recovery Steps</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        document.getElementById('step6Form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Generate PDF using jsPDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(16);
+            doc.text('Step 6: Becoming Ready for Character Transformation - Worksheet', 20, 20);
+
+            const formData = new FormData(this);
+            let yPosition = 40;
+            formData.forEach((value, key) => {
+                const question = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+                doc.text(`${question}:`, 20, yPosition);
+                yPosition += 10;
+                const lines = doc.splitTextToSize(value, 170);
+                doc.text(lines, 20, yPosition);
+                yPosition += lines.length * 10;
+            });
+
+            // Save the PDF
+            doc.save('step6_worksheet.pdf');
+        });
+    </script>
+</body>
+</html>
