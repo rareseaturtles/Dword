@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Step 1: Worksheet</title>
     <link rel="stylesheet" href="step1.css">
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <header>
@@ -24,16 +24,18 @@
                 <label for="question3">3. Embrace the understanding that willpower alone is insufficient. How do you feel about seeking external support?</label>
                 <textarea id="question3" name="question3" required></textarea>
                
-           <button type="submit" class="button" id="generatePDF">I'm Ready</button>
-            <a href="checklist1.html" class="button">Next Step</a>
+                <button type="submit" class="button" id="generatePDF">I'm Ready</button>
+                <a href="checklist1.html" class="button">Next Step</a>
             </form>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 Recovery Steps</p>
     </footer>
+
     <script>
-        document.getElementById('checklistForm').addEventListener('submit', function(event) {
+        // Add the event listener to the correct form id
+        document.getElementById('worksheetForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent default form submission
 
             // Generate PDF
@@ -41,20 +43,21 @@
             const doc = new jsPDF();
 
             doc.setFontSize(16);
-            doc.text('Step 1: Checklist Certificate', 20, 20);
+            doc.text('Step 1: Worksheet Responses', 20, 20);
 
             const formData = new FormData(this);
             let yPosition = 40;
             formData.forEach((value, key) => {
-                doc.text(`${key.replace(/([A-Z])/g, ' $1').toUpperCase()}: ${value ? 'Completed' : 'Not Completed'}`, 20, yPosition);
+                // Add question text and answer to the PDF
+                doc.text(`${key.replace(/([A-Z])/g, ' $1').toUpperCase()}: ${value}`, 20, yPosition);
                 yPosition += 10;
             });
 
             // Save the PDF
-            doc.save('step1_certificate.pdf');
+            doc.save('step1_worksheet.pdf');
 
-            // Redirect to Step 2
-            window.location.href = 'step2.html';
+            // Redirect to Step 2 (optional)
+            window.location.href = 'checklist1.html';
         });
     </script>
 </body>
