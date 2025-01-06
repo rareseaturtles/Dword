@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 10: Continued Personal Inventory</title>
+    <link rel="stylesheet" href="step1.css">
+</head>
+<body>
+    <header>
+        <h1>Step 10: Continued Personal Inventory</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Understanding Step 10</h2>
+            <p>Step 10 involves continuing to take personal inventory and promptly admitting when we are wrong. This ongoing process is essential for maintaining spiritual progress and preventing the accumulation of unresolved issues.</p>
+        </section>
+        <section>
+            <h2>Key Concepts</h2>
+            <ul>
+                <li><strong>Self-Reflection:</strong> Regularly assessing our thoughts, behaviors, and emotions to identify areas needing improvement.</li>
+                <li><strong>Accountability:</strong> Taking responsibility for our actions and promptly admitting mistakes.</li>
+                <li><strong>Emotional Balance:</strong> Maintaining emotional stability by addressing issues as they arise.</li>
+                <li><strong>Continuous Growth:</strong> Committing to ongoing personal development and spiritual well-being.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>How to Work Step 10</h2>
+            <ol>
+                <li><strong>Daily Reflection:</strong> Set aside time each day to review your actions, thoughts, and feelings.</li>
+                <li><strong>Identify Shortcomings:</strong> Acknowledge any mistakes or negative behaviors that occurred.</li>
+                <li><strong>Admit Faults Promptly:</strong> When wrong, promptly admit it to yourself and others affected.</li>
+                <li><strong>Seek Guidance:</strong> Discuss your reflections with a sponsor or trusted individual for additional insight.</li>
+                <li><strong>Implement Changes:</strong> Take actionable steps to correct behaviors and prevent recurrence.</li>
+                <li><strong>Practice Forgiveness:</strong> Forgive yourself and others to maintain emotional balance.</li>
+            </ol>
+        </section>
+        <section>
+            <h2>Inspirational Quotes</h2>
+            <blockquote>
+                <p>"Continued to take personal inventory and when we were wrong promptly admitted it." — Alcoholics Anonymous</p>
+            </blockquote>
+            <blockquote>
+                <p>"The unexamined life is not worth living." — Socrates</p>
+            </blockquote>
+        </section>
+        <section>
+            <h2>Reflection</h2>
+            <p>Consider how regular self-examination can lead to sustained personal growth. Reflect on the importance of promptly admitting mistakes and how this practice contributes to emotional well-being and healthier relationships.</p>
+        </section>
+        <section>
+            <h2>Worksheet</h2>
+            <form id="step10Form">
+                <label for="dailyReflection">1. Describe your daily reflection process and its impact on your recovery:</label>
+                <textarea id="dailyReflection" name="dailyReflection" required></textarea>
+
+                <label for="recentShortcomings">2. Identify any recent shortcomings and how you addressed them:</label>
+                <textarea id="recentShortcomings" name="recentShortcomings" required></textarea>
+
+                <label for="accountabilityActions">3. Outline steps you take to maintain accountability in your daily life:</label>
+                <textarea id="accountabilityActions" name="accountabilityActions" required></textarea>
+
+                <label for="emotionalBalanceStrategies">4. List strategies you use to maintain emotional balance:</label>
+                <textarea id="emotionalBalanceStrategies" name="emotionalBalanceStrategies" required></textarea>
+
+                <button type="submit" class="button" id="saveAnswers">Save Answers</button>
+            </form>
+        </section>
+        <section>
+            <a href="step11.html" class="button">Next Step</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Recovery Steps</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        document.getElementById('step10Form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Generate PDF using jsPDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(16);
+            doc.text('Step 10: Continued Personal Inventory - Worksheet', 20, 20);
+
+            const formData = new FormData(this);
+            let yPosition = 40;
+            formData.forEach((value, key) => {
+                const question = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+                doc.text(`${question}:`, 20, yPosition);
+                yPosition += 10;
+                const lines = doc.splitTextToSize(value, 170);
+                doc.text(lines, 20, yPosition);
+                yPosition += lines.length * 10;
+            });
+
+            // Save the PDF
+            doc.save('step10_worksheet.pdf');
+        });
+    </script>
+</body>
+</html>
