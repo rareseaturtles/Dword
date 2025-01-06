@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 2: Belief in a Higher Power</title>
+    <link rel="stylesheet" href="step1.css">
+</head>
+<body>
+    <header>
+        <h1>Step 2: Belief in a Higher Power</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Worksheet</h2>
+            <form id="step2Form">
+                <label for="higherPower">Describe your understanding of a higher power:</label>
+                <textarea id="higherPower" name="higherPower" required></textarea>
+
+                <label for="restoration">How do you believe a higher power can restore you to sanity?</label>
+                <textarea id="restoration" name="restoration" required></textarea>
+
+                <label for="surrender">What does surrendering to a higher power mean to you?</label>
+                <textarea id="surrender" name="surrender" required></textarea>
+
+                <label for="support">How can seeking support from others help you in this step?</label>
+                <textarea id="support" name="support" required></textarea>
+
+                <button type="submit" class="button" id="generatePDF">Generate PDF</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Recovery Steps</p>
+    </footer>
+    <script>
+        document.getElementById('step2Form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Generate PDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(16);
+            doc.text('Step 2: Belief in a Higher Power Worksheet', 20, 20);
+
+            const formData = new FormData(this);
+            let yPosition = 40;
+            formData.forEach((value, key) => {
+                doc.text(`${key.replace(/([A-Z])/g, ' $1')}: ${value}`, 20, yPosition);
+                yPosition += 10;
+            });
+
+            // Save the PDF
+            doc.save('step2_worksheet.pdf');
+        });
+    </script>
+</body>
+</html>
