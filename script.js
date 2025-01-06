@@ -25,7 +25,32 @@ document.getElementById('stepOneForm').addEventListener('submit', function(event
         yPosition += 20;
     }
 
+    // Include checklist responses
+    const checklistResponses = [
+        'Have I tried to control my substance use without success?',
+        'Have I experienced negative consequences in my life due to my addiction?',
+        'Am I willing to acknowledge my powerlessness over my addiction?',
+        'Do I recognize the need for help and support in my recovery journey?'
+    ];
+
+    doc.setFontSize(12);
+    doc.text('Checklist Responses:', 20, yPosition);
+    yPosition += 10;
+
+    checklistResponses.forEach((question, index) => {
+        doc.setFontSize(10);
+        doc.text(`${index + 1}. ${question}`, 20, yPosition);
+        yPosition += 10;
+        doc.text('Response: ____________________________', 20, yPosition);
+        yPosition += 20;
+    });
+
     doc.save('Step_One_Worksheet.pdf');
+});
+
+document.getElementById('nextStepButton').addEventListener('click', function() {
+    // Navigate to Step Two (implement navigation logic as needed)
+    window.location.href = 'step2.html'; // Replace with actual path to Step Two page
 });
 
 function capitalizeFirstLetter(string) {
