@@ -3,17 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Step 1: Worksheet</title>
+    <title>Recovery Steps</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .tabs {
+            display: flex;
+            cursor: pointer;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .tab {
+            padding: 14px 20px;
+            flex: 1;
+            text-align: center;
+            background-color: inherit;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .tab:hover {
+            background-color: #f1f1f1;
+        }
+
+        .tab.active {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 5px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Step 1: Worksheet</h1>
+        <h1>Recovery Steps</h1>
     </header>
+    <nav>
+        <div class="tabs">
+            <button class="tab active" data-tab="step1">Step 1</button>
+            <button class="tab" data-tab="step2">Step 2</button>
+            <button class="tab" data-tab="step3">Step 3</button>
+            <!-- Add more steps as needed -->
+            <button class="tab" data-tab="daily">Daily</button>
+        </div>
+    </nav>
     <main>
-        <section>
-            <h2>Worksheet Questions</h2>
+        <section id="step1" class="tab-content active">
+            <h2>Step 1: Worksheet</h2>
             <form id="worksheetForm">
                 <label for="question1">1. Reflect on past attempts to control or quit substance use. What were the outcomes?</label>
                 <textarea id="question1" name="question1" required></textarea>
@@ -23,10 +146,23 @@
 
                 <label for="question3">3. Embrace the understanding that willpower alone is insufficient. How do you feel about seeking external support?</label>
                 <textarea id="question3" name="question3" required></textarea>
-               
+
                 <button type="submit" class="button" id="generatePDF">Save Answers</button>
                 <a href="checklist1.html" class="button">Next Step</a>
             </form>
+        </section>
+        <section id="step2" class="tab-content">
+            <h2>Step 2: Worksheet</h2>
+            <!-- Content for Step 2 -->
+        </section>
+        <section id="step3" class="tab-content">
+            <h2>Step 3: Worksheet</h2>
+            <!-- Content for Step 3 -->
+        </section>
+        <!-- Add more sections for additional steps -->
+        <section id="daily" class="tab-content">
+            <h2>Daily Routine</h2>
+            <!-- Content for Daily Routine -->
         </section>
     </main>
     <footer>
@@ -34,6 +170,30 @@
     </footer>
 
     <script>
+        // JavaScript to handle tab switching
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const target = this.getAttribute('data-tab');
+
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(target).classList.add('active');
+                });
+            });
+
+            // Set default active tab
+            tabs[0].classList.add('active');
+            contents[0].classList.add('active');
+        });
+
         // Add the event listener to the correct form id
         document.getElementById('worksheetForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent default form submission
@@ -49,16 +209,6 @@
             let yPosition = 40;
             formData.forEach((value, key) => {
                 // Add question text and answer to the PDF
-                doc.text(`${key.replace(/([A-Z])/g, ' $1').toUpperCase()}: ${value}`, 20, yPosition);
-                yPosition += 10;
-            });
-
-            // Save the PDF
-            doc.save('step1_worksheet.pdf');
-
-            // Redirect to Step 2 (optional)
-            window.location.href = 'checklist1.html';
-        });
-    </script>
-</body>
-</html>
+                doc.text(`${
+::contentReference[oaicite:0]{index=0}
+ 
