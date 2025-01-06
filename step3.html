@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 3: Decision to Turn Our Will and Our Lives Over</title>
+    <link rel="stylesheet" href="checklist1.css">
+</head>
+<body>
+    <header>
+        <h1>Step 3: Decision to Turn Our Will and Our Lives Over</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Worksheet</h2>
+            <form id="step3Form">
+                <label for="higherPower">1. How do you understand the concept of a Higher Power?</label>
+                <textarea id="higherPower" name="higherPower" required></textarea>
+
+                <label for="surrender">2. What does surrendering your will mean to you?</label>
+                <textarea id="surrender" name="surrender" required></textarea>
+
+                <label for="trust">3. How can trusting a Higher Power help you in your recovery?</label>
+                <textarea id="trust" name="trust" required></textarea>
+
+                <label for="commitment">4. What steps can you take to demonstrate your commitment to this decision?</label>
+                <textarea id="commitment" name="commitment" required></textarea>
+
+                <button type="submit" class="button" id="nextStep">Next Step</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Recovery Steps</p>
+    </footer>
+
+    <script>
+        document.getElementById('step3Form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Generate PDF using jsPDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(16);
+            doc.text('Step 3: Decision to Turn Our Will and Our Lives Over Worksheet', 20, 20);
+
+            // Extract form data
+            const formData = new FormData(this);
+            let yPosition = 40;
+            formData.forEach((value, key) => {
+                // Format question and answer
+                const question = key.replace(/([A-Z])/g, ' $1').toUpperCase();
+                doc.text(`${question}: ${value}`, 20, yPosition);
+                yPosition += 10;
+            });
+
+            // Save the PDF
+            doc.save('step3_worksheet.pdf');
+
+            // Redirect to the next step page
+            window.location.href = 'next_step.html'; // Replace with your actual next step page URL
+        });
+    </script>
+</body>
+</html>
