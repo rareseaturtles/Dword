@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fourth Step Inventory Worksheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fourth Step Inventory Worksheet</h1>
+    <div class="container">
+        <form action="/submit_inventory" method="POST">
+            <div class="section">
+                <label for="resentments">Resentments</label>
+                <textarea id="resentments" name="resentments" placeholder="List your resentments here..."></textarea>
+            </div>
+            <div class="section">
+                <label for="fears">Fears</label>
+                <textarea id="fears" name="fears" placeholder="List your fears here..."></textarea>
+            </div>
+            <div class="section">
+                <label for="harms">Harms Done to Others</label>
+                <textarea id="harms" name="harms" placeholder="List the harms you've done to others here..."></textarea>
+            </div>
+            <div class="section">
+                <label for="assets">Assets</label>
+                <textarea id="assets" name="assets" placeholder="List your assets here..."></textarea>
+            </div>
+            <input type="submit" value="Submit Inventory">
+        </form>
+    </div>
+</body>
+</html>
